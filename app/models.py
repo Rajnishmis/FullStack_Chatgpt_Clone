@@ -22,7 +22,7 @@ class ChatSession(Base):
     title = Column(String, default="New Chat")
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
-
+    pending_action = Column(String(100), nullable=True)
     owner = relationship("User", back_populates="chats")
     messages = relationship("ChatMessage", back_populates="session")
 
@@ -34,6 +34,7 @@ class ChatMessage(Base):
     id = Column(Integer, primary_key=True, index=True)
     session_id = Column(Integer, ForeignKey("sessions.id"))
     content = Column(String, nullable=False)
+    role = Column(String, nullable=False)  # ✅ Add this line
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     # --- The 1536-dimension vector field ---
