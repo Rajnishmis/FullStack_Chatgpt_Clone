@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+alembic
+python-dotenv
+passlib[bcrypt]
+python-jose[cryptography]
+openai
+langchain
+langserve[all]
+pgvector
+psycopg[binary]
+streamlit
+google-generative-ai

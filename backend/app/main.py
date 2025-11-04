@@ -17,11 +17,14 @@
 
 from fastapi import FastAPI
 from app.routers import auth_router, chat_routers
+from app.routers.weather_router import router as weather_router
+
 
 app = FastAPI()
 
 app.include_router(auth_router.router)
 app.include_router(chat_routers.router)
+app.include_router(weather_router)
 
 
 @app.get("/")
